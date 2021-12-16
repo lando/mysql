@@ -1,0 +1,14 @@
+# Disable the "core" mysql plugins
+disablePlugins:
+  - lando-mysql
+
+# Make sure we are dogfooding this plugin for testing purposes
+plugins:
+  "@lando/mysql": /home/runner/work/mysql/mysql
+
+# Disable metrics reporting
+stats:
+  - report: false
+    url: https://metrics.lando.dev
+
+
