@@ -10,6 +10,8 @@ jobs:
       TERM: xterm
     strategy:
       matrix:
+        lando-versions:
+          - edge
         os:
           - ubuntu-20.04
         node-version:
