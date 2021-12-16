@@ -1,0 +1,6 @@
+name: lando-mysql-57
+services:
+  defaults:
+    type: mysql
+  patch:
+    type: mysql:5.7.24

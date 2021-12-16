@@ -1,0 +1,31 @@
+name: lando-mysql-custom
+services:
+  custom:
+    type: mysql:8.0
+    portforward: true
+    creds:
+      user: pirog
+      password: password
+      database: stuff
+    config:
+      database: my.cnf
+    overrides:
+      logging:
+        driver: 'json-file'
+        options:
+          max-file: '5'
+          max-size: '5m'
+  custom_auth:
+    type: mysql:8.0
+    authentication: mysql_native_password
+tooling:
+  mysql:
+    cmd: mysql
+    service: :host
+    options:
+      host:
+        description: The database service to use
+        default: custom
+        alias:
+          - h
+
