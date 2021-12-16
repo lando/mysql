@@ -4,3 +4,8 @@ services:
     type: mysql
   patch:
     type: mysql:5.7.24
+
+# This is important because it lets lando know to test against the plugin in this repo
+# DO NOT REMOVE THIS!
+plugins:
+  "@lando/mysql": ./../../
