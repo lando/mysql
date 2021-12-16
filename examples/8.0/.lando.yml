@@ -1,0 +1,7 @@
+name: lando-mysql-80
+services:
+  defaults:
+    type: mysql:8.0
+  patch:
+    type: mysql:8.0.24
+
