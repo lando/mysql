@@ -2,7 +2,7 @@
   "name": "@lando/mysql",
   "description": "A Lando plugin that provides a tight integration with MySQL.",
   "version": "0.5.1",
-  "author": "John Ouellet @labboy0276",
+  "author": "Mike Pirog @pirog",
   "license": "GPL-3.0",
   "repository": "lando/mysql",
   "bugs": "https://github.com/lando/mysql/issues/new/choose",
@@ -10,11 +10,14 @@
   "keywords": [
     "lando",
     "lando-plugin",
+    "lando-service",
     "mysql"
   ],
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
+  "bundledDependencies": true,
+  "lando": {},
   "main": "index.js",
   "nyc": {
     "include": [
@@ -41,7 +44,6 @@
     "test": "yarn lint && yarn test:unit"
   },
   "dependencies": {
-    "js-yaml": "^3.4.6",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
