@@ -1,0 +1,8 @@
+FROM bitnami/mysql:8.0.19-debian-10-r57
+
+COPY *.sh /
+RUN /user-perms.sh
+RUN /load-keys.sh
+USER root
+RUN /setup-ca.sh
+USER 1001
