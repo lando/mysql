@@ -1,4 +1,4 @@
-FROM bitnami/mysql:8.0.19-debian-10-r57
+FROM mysql:8
 
 COPY *.sh /
 RUN /user-perms.sh

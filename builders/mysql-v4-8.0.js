@@ -2,6 +2,7 @@
 
 // Modules
 const fs = require('fs');
+const generator = require('dockerfile-generator');
 const _ = require('lodash');
 const path = require('path');
 
@@ -40,7 +41,7 @@ module.exports = {
 
       // Whatever the MySQL entrypoint is for a bare-bones example to bypass the Lando default entrypoint. see here for Bitnami: https://github.com/bitnami/containers/blob/main/bitnami/mysql/5.7/debian-11/Dockerfile
       // https://github.com/lando/core/blob/main/plugins/lando-core/builders/_lando.js#LL32C45-L32C45
-      options.entrypoint = '/opt/bitnami/scripts/mysql/entrypoint.sh';
+      options.entrypoint = 'docker-entrypoint.sh';
        
       // Create a Dockerfile.
       // Could start with a Dockerfile that literally just references the bitnami image.
@@ -56,23 +57,39 @@ module.exports = {
       // 3. Once these things are working, switch to official MySQL image.
 
       // OPT: Generate the Dockerfile from metadata using docker-file-generator?
-
-
-      // Build Docker Compose file here.
-      const mysql = {
-        // Use the object version with build context to reference the new Dockerfile, look at Voya example.
-        command: '/opt/bitnami/scripts/mysql/run.sh',
-        build: {
-          dockerfile: `/tmp/${options.name}/Dockerfile-mysql-v4-8.0`,
-          context: `/tmp/${options.name}`,
-        },
-        environment: {
+      const dockerFileJson = {
+        from: {baseImage: 'mysql:8'},
+        copy: {'*.sh': '/'},
+        run: '/setup.sh',
+        env: {
           ALLOW_EMPTY_PASSWORD: 'yes',
           MYSQL_AUTHENTICATION_PLUGIN: options.authentication,
           MYSQL_DATABASE: options.creds.database,
           MYSQL_PASSWORD: options.creds.password,
           MYSQL_USER: options.creds.user,
+          MYSQL_ROOT_PASSWORD: options.creds.password,
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes',
           LANDO_NEEDS_EXEC: 'DOEEET',
+        },
+        entrypoint: options.entrypoint,
+        cmd: 'mysqld',
+      };
+
+      // Generate Dockerfile and save to filesystem.
+      generator.generate(dockerFileJson).then((dockerFile) => {
+        return fs.writeFileSync(`/tmp/${options.name}/Dockerfile`, dockerFile);
+      }).then(() => {
+        console.log('Dockerfile saved successfully!');
+      }).catch((err) => {
+        console.error('Error saving Dockerfile:', err);
+      });
+
+      // Build Docker Compose file here.
+      const mysql = {
+        // Use the object version with build context to reference the new Dockerfile, look at Voya example.
+        build: {
+          dockerfile: `/tmp/${options.name}/Dockerfile`,
+          context: `/tmp/${options.name}`,
         },
         volumes: [
           `${options.confDest}/${options.defaultFiles.database}:${options.remoteFiles.database}`,

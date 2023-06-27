@@ -46,6 +46,7 @@
     "test": "yarn lint && yarn test:unit"
   },
   "dependencies": {
+    "dockerfile-generator": "^5.0.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
