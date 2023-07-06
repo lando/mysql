@@ -5,4 +5,3 @@ set -e
 
 ./user-perms.sh
 ./load-keys.sh
-./setup-ca.sh

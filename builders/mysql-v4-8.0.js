@@ -11,6 +11,7 @@ const path = require('path');
 module.exports = {
   name: 'mysql',
   config: {
+    meUser: 'mysql',
     version: '8',
     supported: ['8'],
     patchesSupported: true,
@@ -22,12 +23,12 @@ module.exports = {
       user: 'mysql',
     },
     healthcheck: 'mysql -uroot --silent --execute "SHOW DATABASES;"',
-    port: '3306',
+    port: '33060',
     defaultFiles: {
       database: 'my_custom.cnf',
     },
     remoteFiles: {
-      database: '/opt/bitnami/mysql/conf/my_custom.cnf',
+      database: '/etc/mysql/conf.d/my_custom.cnf',
     },
   },
   parent: '_service',
@@ -49,7 +50,7 @@ module.exports = {
       fs.mkdirSync(`/tmp/${options.name}`, { recursive: true });
       fs.copyFileSync(path.resolve(__dirname, '..', 'dockerfiles', 'Dockerfile-mysql-v4-8.0'), `/tmp/${options.name}/Dockerfile-mysql-v4-8.0`);
       fs.cpSync(path.resolve(__dirname, '..', 'scripts'), `/tmp/${options.name}`, {recursive: true});
-      fs.copyFileSync(path.resolve(__dirname, 'my_custom.cnf'), `/tmp/${options.name}/my_custom.cnf`);
+      fs.cpSync(path.resolve(__dirname, 'my_custom.cnf'), `/tmp/${options.name}/config/my_custom.cnf`, {recursive: true});
 
       // 1. Get as much stuff from the Docker Compose into here.
       // 2. Move as much functionality from the Lando entrypoint (certs, ssh keys, setting up the user)
@@ -58,16 +59,17 @@ module.exports = {
 
       // OPT: Generate the Dockerfile from metadata using docker-file-generator?
       const dockerFileJson = {
-        from: {baseImage: 'mysql:8'},
-        copy: {'*.sh': '/'},
+        from: {baseImage: 'mysql:8.0.33'},
+        copy: {
+          '*.sh': '/',
+          'config/my_custom.cnf': '/etc/mysql/conf.d/my_custom.cnf',
+        },
         run: '/setup.sh',
         env: {
-          ALLOW_EMPTY_PASSWORD: 'yes',
           MYSQL_AUTHENTICATION_PLUGIN: options.authentication,
           MYSQL_DATABASE: options.creds.database,
           MYSQL_PASSWORD: options.creds.password,
           MYSQL_USER: options.creds.user,
-          MYSQL_ROOT_PASSWORD: options.creds.password,
           MYSQL_ALLOW_EMPTY_PASSWORD: 'yes',
           LANDO_NEEDS_EXEC: 'DOEEET',
         },
@@ -86,14 +88,13 @@ module.exports = {
 
       // Build Docker Compose file here.
       const mysql = {
+        // @todo: I feel like this shouldn't be necessary.
+        command: 'mysqld',
         // Use the object version with build context to reference the new Dockerfile, look at Voya example.
-        build: {
-          dockerfile: `/tmp/${options.name}/Dockerfile`,
-          context: `/tmp/${options.name}`,
-        },
+        build: `/tmp/${options.name}`,
         volumes: [
           `${options.confDest}/${options.defaultFiles.database}:${options.remoteFiles.database}`,
-          `${options.data}:/bitnami/mysql/data`,
+          `${options.data}:/var/lib/mysql`,
         ],
       };
       // Send it downstream
