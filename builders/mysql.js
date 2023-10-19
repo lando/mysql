@@ -2,6 +2,7 @@
 
 // Modules
 const _ = require('lodash');
+const path = require('path');
 
 // Builder
 module.exports = {
@@ -15,13 +16,12 @@ module.exports = {
     },
     patchesSupported: true,
     authentication: 'caching_sha2_password',
-    confSrc: __dirname,
+    confSrc: path.resolve(__dirname, '..', 'config'),
     creds: {
       database: 'database',
       password: 'mysql',
       user: 'mysql',
     },
-    healthcheck: 'mysql -uroot --silent --execute "SHOW DATABASES;"',
     port: '3306',
     defaultFiles: {
       database: 'my_custom.cnf',
@@ -38,10 +38,9 @@ module.exports = {
       if (_.startsWith(options.version, '5.7')) {
         options.authentication = 'mysql_native_password';
       }
-      // If we can ensure an up to date version lets use a better healthcheck
-      if (_.includes(['8.0', '5.7'], options.version)) {
-        options.healthcheck = 'bash -c "[ -f /bitnami/mysql/.mysql_initialized ]"';
-      }
+
+      if (!options.healthcheck) options.healthcheck = require('../utils/get-default-healthcheck')(options);
+
       // Ensure the non-root backup perm sweep runs
       // NOTE: we guard against cases where the UID is the same as the bitnami non-root user
       // because this messes things up on circle ci and presumably elsewhere and _should_ be unncessary
@@ -66,9 +65,6 @@ module.exports = {
         ],
       };
 
-      // Host is necessary to check the networked location.
-      options.healthcheck =`mysql --host=${options.name} --user=${options.creds.user}` +
-        `--database=${options.creds.database} --password=${options.creds.password} --silent --execute "SHOW TABLES;"`;
 
         // Send it downstream
       super(id, options, {services: _.set({}, options.name, mysql)});
