@@ -1,3 +1,8 @@
+## v0.9.0 - [Oct 20, 2023](https://github.com/lando/mysql/releases/tag/v0.9.0)
+* Added a new healthcheck that better assesses service readiness. [#33](https://github.com/lando/mysql/pull/33)
+* Restructured to use builders/postgres.js.
+
+
 ## v0.8.0 - [July 3, 2023](https://github.com/lando/mysql/releases/tag/v0.8.0)
   * Removed bundle-dependencies and version-bump-prompt from plugin.
   * Updated package to use prepare-release-action.
