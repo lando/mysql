@@ -120,7 +120,7 @@ By default a service will not do any tooling routing for you but you can add hel
 
 ```yaml
 tooling:
-  donet:
+  dotnet:
     service: myservice
 ```
 
