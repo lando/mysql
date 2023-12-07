@@ -1,3 +1,6 @@
+## v1.0.0 - [December 7, 2023](https://github.com/lando/mysql/releases/tag/v1.0.0)
+    * Dialed fully for `lando update`
+
 ## v0.9.0 - [Oct 20, 2023](https://github.com/lando/mysql/releases/tag/v0.9.0)
 * Added a new healthcheck that better assesses service readiness. [#33](https://github.com/lando/mysql/pull/33)
 * Restructured to use builders/mysql.js.
