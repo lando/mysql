@@ -35,10 +35,9 @@ module.exports = {
     constructor(id, options = {}) {
       options = _.merge({}, config, options);
       // Force the auth plugin to be mysql_native_password on 5.7
-      if (_.startsWith(options.version, '5.7')) {
-        options.authentication = 'mysql_native_password';
-      }
+      if (_.startsWith(options.version, '5.7')) options.authentication = 'mysql_native_password';
 
+      // set a default health check if we dont already have one
       if (!options.healthcheck) options.healthcheck = require('../utils/get-default-healthcheck')(options);
 
       // Ensure the non-root backup perm sweep runs
