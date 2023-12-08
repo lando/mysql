@@ -33,7 +33,6 @@ lando ssh -s defaults -c "mysql -umysql -pmysql database -e quit"
 
 # Should still be running even after a restart
 lando restart
-lando ssh -s defaults -c "mysql -umysql -pmysql database -e quit"
 ```
 
 Destroy tests
