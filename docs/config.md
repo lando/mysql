@@ -5,9 +5,9 @@ description: Learn how to configure the Lando MySQL service.
 
 # Configuration
 
-Here are the configuration options, set to the default values, for this service. If you are unsure about where this goes or what this means, we *highly recommend* scanning the [services documentation](https://docs.lando.dev/config/services.html) to get a good handle on how the magicks work.
+Here are the configuration options, set to the default values, for this service. If you are unsure about where this goes or what this means, we *highly recommend* scanning the [services documentation](https://docs.lando.dev/core/v3/lando-service.html) to get a good handle on how the magicks work.
 
-Also note that options, in addition to the [build steps](https://docs.lando.dev/config/services.html#build-steps) and [overrides](https://docs.lando.dev/config/services.html#overrides) that are available to every service, are shown below:
+Also note that options, in addition to the [build steps](https://docs.lando.dev/core/v3/lando-service.html#build-steps) and [overrides](https://docs.lando.dev/core/v3/lando-service.html#overrides) that are available to every service, are shown below:
 
 ::: warning Be careful when switching database type, version or credentials!
 You should be careful switching database `type`, `version` or `creds`.
@@ -84,7 +84,7 @@ Also note that by default all `mysql` services have a passwordless `root` user. 
 
 ## Using a custom MySQL config file
 
-You may need to override our [default MySQL config](https://github.com/lando/mysql/tree/main/services/mysql) with your own [custom MySQL config](https://dev.mysql.com/doc/refman/8.0/en/option-files.html).
+You may need to override our [default MySQL config](https://github.com/lando/mysql/tree/main/builders) with your own [custom MySQL config](https://dev.mysql.com/doc/refman/8.0/en/option-files.html).
 
 If you do this, you must use a file that exists inside your application and express it relative to your project root as shown below:
 
@@ -130,7 +130,7 @@ You can then invoke them on the command line.
 lando dotnet
 ```
 
-Lando tooling is actually pretty powerful so definitely check out [the rest](https://docs.lando.dev/config/tooling.html) of its cool features.
+Lando tooling is actually pretty powerful so definitely check out [the rest](https://docs.lando.dev/core/v3/tooling.html) of its cool features.
 
 ## Adding routing
 
@@ -143,4 +143,4 @@ proxy:
     - something.else.local
 ```
 
-Lando proxying is actually pretty powerful so definitely check out [the rest](https://docs.lando.dev/config/proxy.html) of its cool features.
+Lando proxying is actually pretty powerful so definitely check out [the rest](https://docs.lando.dev/core/v3/proxy.html) of its cool features.
