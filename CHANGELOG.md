@@ -1,3 +1,8 @@
+## v1.1.0 - [March 8, 2024](https://github.com/lando/mysql/releases/tag/v1.1.0)
+
+### Fixes
+* Allow empty password and other creds fields to pass healthcheck [lando/lamp#51](https://github.com/lando/lamp/issues/51)
+
 ## v1.0.0 - [December 7, 2023](https://github.com/lando/mysql/releases/tag/v1.0.0)
 
 * Dialed fully for `lando update`

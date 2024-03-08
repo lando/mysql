@@ -18,6 +18,12 @@ services:
   custom_auth:
     type: mysql:8.0
     authentication: mysql_native_password
+  custom_no_password:
+    type: mysql:8.0
+    creds:
+      user: pirog
+      database: stuff
+      password:
 tooling:
   mysql:
     cmd: mysql
