@@ -70,10 +70,14 @@ services:
   myservice:
     type: mysql
     creds:
-      user: mysql -> myuser
-      password: mysql -> mypassword
-      database: database -> db7
+      user: mysql // [!code --]
+      user: myuser // [!code ++]
+      password: mysql // [!code --]
+      password: mypassword // [!code ++]
+      database: database // [!code --]
+      database: db7 // [!code ++]
 ```
+
 
 ```bash
 lando destroy -y && lando start
