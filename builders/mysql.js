@@ -11,8 +11,8 @@ module.exports = {
     version: '5.7',
     supported: ['8.0', '5.7'],
     pinPairs: {
-      '8.0': 'bitnami/mysql:8.0.19-debian-10-r57',
-      '5.7': 'bitnami/mysql:5.7.29-debian-10-r51',
+      '8.0': 'bitnami/mysql:8.0.39-debian-12-r5',
+      '5.7': 'bitnami/mysql:5.7.43-debian-11-r73',
     },
     patchesSupported: true,
     authentication: 'caching_sha2_password',

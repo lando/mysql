@@ -23,7 +23,7 @@ Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should use 5.7.29 as the default version
-lando ssh -s defaults -c "mysql --version | grep 5.7.29"
+lando ssh -s defaults -c "mysql --version | grep 5.7.43"
 
 # Should use the patch version when set by the user
 lando ssh -s patch -c "mysql --version | grep 5.7.24"

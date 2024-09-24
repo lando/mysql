@@ -1,4 +1,7 @@
-## v1.1.0 - [March 8, 2024](https://github.com/lando/mysql/releases/tag/v1.1.0)
+## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
+  * Updated pinned versions to images with ARM releases. [#57](https://github.com/lando/mysql/issues/57)
+
+## v1.2.0 - [March 11, 2024](https://github.com/lando/mysql/releases/tag/v1.2.0)
   * Updated to latest database services.
 
 ## v1.1.0 - [March 8, 2024](https://github.com/lando/mysql/releases/tag/v1.1.0)
