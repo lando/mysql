@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated release process to generate an edge release when stable releases are created.
+
 ## v1.3.0 - [September 24, 2024](https://github.com/lando/mysql/releases/tag/v1.3.0)
   * Updated pinned versions to images with ARM releases. [#57](https://github.com/lando/mysql/issues/57)
 
