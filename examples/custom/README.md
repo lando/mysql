@@ -22,7 +22,7 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should use the specfied version when set by the user
+# Should use the specified version when set by the user
 lando ssh -s custom -c "mysql --version" | grep "8.0"
 
 # Should use the caching_sha2_password auth plugin by default for mysql8
