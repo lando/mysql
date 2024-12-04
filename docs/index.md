@@ -18,8 +18,9 @@ services:
 
 ## Supported versions
 
-*   [8.0](https://hub.docker.com/r/bitnami/mysql)
-*   **[5.7](https://hub.docker.com/r/bitnami/mysql)** **(default)**
+*   [8.4](https://hub.docker.com/r/bitnami/mysql/tags?name=8.4.)
+*   [8.0](https://hub.docker.com/r/bitnami/mysql/tags?name=8.0.)
+*   **[5.7](https://hub.docker.com/r/bitnami/mysql/tags?name=5.7.)** **(default)**
 *   [custom](https://docs.lando.dev/core/v3/services/lando.html#overrides)
 
 ## Patch versions

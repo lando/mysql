@@ -9,13 +9,13 @@ module.exports = {
   name: 'mysql',
   config: {
     version: '5.7',
-    supported: ['8.0', '5.7'],
+    supported: ['8.4', '8.0', '5.7'],
     pinPairs: {
-      '8.0': 'bitnami/mysql:8.0.39-debian-12-r5',
+      '8.4': 'bitnami/mysql:8.4.3-debian-12-r4',
+      '8.0': 'bitnami/mysql:8.0.40-debian-12-r4',
       '5.7': 'bitnami/mysql:5.7.43-debian-11-r73',
     },
     patchesSupported: true,
-    authentication: 'caching_sha2_password',
     confSrc: path.resolve(__dirname, '..', 'config'),
     creds: {
       database: 'database',
