@@ -43,7 +43,6 @@
     "test": "npm run lint && npm run test:unit"
   },
   "dependencies": {
-    "@lando/mysql": "^1.1.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
