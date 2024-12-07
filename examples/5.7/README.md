@@ -22,14 +22,14 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should use 5.7.29 as the default version
-lando ssh -s defaults -c "mysql --version | grep 5.7.43"
+# Should use 5.7.43 as the default version
+lando exec defaults -- mysql --version | grep 5.7.43
 
 # Should use the patch version when set by the user
-lando ssh -s patch -c "mysql --version | grep 5.7.24"
+lando exec patch -- mysql --version | grep 5.7.41
 
 # Should use the correct default user pass db
-lando ssh -s defaults -c "mysql -umysql -pmysql database -e quit"
+lando exec defaults -- mysql -umysql -pmysql database -e quit
 
 # Should still be running even after a restart
 lando restart

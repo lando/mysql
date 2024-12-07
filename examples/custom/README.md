@@ -23,7 +23,7 @@ Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should use the specfied version when set by the user
-lando ssh -s custom -c "mysql --version" | grep "8.0"
+lando exec custom -- mysql --version | grep "8.0"
 
 # Should use the caching_sha2_password auth plugin by default for mysql8
 lando mysql -u root -e "SELECT user,plugin FROM mysql.user;" | grep pirog | grep caching_sha2_password
@@ -32,7 +32,7 @@ lando mysql -u root -e "SELECT user,plugin FROM mysql.user;" | grep pirog | grep
 lando mysql -u root -h custom_auth -e "SELECT user,plugin FROM mysql.user;" | grep mysql | grep mysql_native_password
 
 # Should use the user provided creds if given
-lando ssh -s custom -c "mysql -upirog -ppassword stuff -e quit"
+lando exec custom -- mysql -upirog -ppassword stuff -e quit
 
 # Should use a custom config file if specified
 lando mysql -u root -e "show variables;" | grep table_open_cache | grep 513
