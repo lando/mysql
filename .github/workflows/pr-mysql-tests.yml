@@ -14,9 +14,9 @@ jobs:
         os:
           - ubuntu-24.04
         node-version:
-          - '18'
+          - '20'
         lando-version:
-          - 3-edge-slim
+          - 3-edge
         leia-test:
           - examples/5.7
           - examples/8.0
