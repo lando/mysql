@@ -8,12 +8,12 @@ next: ./config.html
 
 [MySQL](https://www.mysql.com/) is a very common database server.
 
-You can easily add it to your Lando app by adding an entry to the [services](https://docs.lando.dev/core/v3/services/lando.html) top-level config in your [Landofile](https://docs.lando.dev/core/v3).
+You can easily add it to your Lando app by adding an entry to the [services](https://docs.lando.dev/services/lando-3.html) top-level config in your [Landofile](https://docs.lando.dev/landofile/).
 
 ```yaml
 services:
   myservice:
-    type: mysql
+    type: mysql:8.0
 ```
 
 ## Supported versions
@@ -21,7 +21,7 @@ services:
 *   [8.4](https://hub.docker.com/r/bitnami/mysql/tags?name=8.4.)
 *   [8.0](https://hub.docker.com/r/bitnami/mysql/tags?name=8.0.)
 *   **[5.7](https://hub.docker.com/r/bitnami/mysql/tags?name=5.7.)** **(default)**
-*   [custom](https://docs.lando.dev/core/v3/services/lando.html#overrides)
+*   [custom](https://docs.lando.dev/services/lando-3.html#overrides)
 
 ## Patch versions
 

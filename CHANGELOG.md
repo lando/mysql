@@ -3,6 +3,18 @@
 * Added support for MySQL 8.4
 * Updated 8.0 to patch 40
 
+## v1.4.4 - [December 7, 2024](https://github.com/lando/mysql/releases/tag/v1.4.4)
+
+* Optimized for `midcore`
+
+## v1.4.3 - [December 6, 2024](https://github.com/lando/mysql/releases/tag/v1.4.3)
+
+* Updated the version index.md to get Docuverse page to build correctly.
+
+## v1.4.2 - [December 4, 2024](https://github.com/lando/mysql/releases/tag/v1.4.2)
+
+* Updated to [@lando/vitepress-theme-default-plus@v1.1.0-beta.24](https://github.com/lando/vitepress-theme-default-plus/releases/tag/v1.1.0-beta.24).
+
 ## v1.4.1 - [November 4, 2024](https://github.com/lando/mysql/releases/tag/v1.4.1)
 
 * Updated to [@lando/vitepress-theme-default-plus@v1.1.0-beta.18](https://github.com/lando/vitepress-theme-default-plus/releases/tag/v1.1.0-beta.18).

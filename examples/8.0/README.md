@@ -23,17 +23,17 @@ Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should use 8.4 as the default version
-lando ssh -s defaults -c "mysql --version | grep 8.4.3"
+lando exec defaults -- mysql --version | grep 8.4.3
 
 # Should use the patch version when set by the user
-lando ssh -s patch -c "mysql --version | grep 8.0.24"
+lando exec patch -- mysql --version | grep 8.0.24
 
 # Should use the correct default user pass db
-lando ssh -s defaults -c "mysql -umysql -pmysql database -e quit"
+lando exec defaults -- mysql -umysql -pmysql database -e quit
 
 # Should still be running even after a restart
 lando restart
-lando ssh -s defaults -c "mysql -umysql -pmysql database -e quit"
+lando exec defaults -- mysql -umysql -pmysql database -e quit
 ```
 
 Destroy tests
