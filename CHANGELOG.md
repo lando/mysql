@@ -1,5 +1,8 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Added support for MySQL 8.4
+* Updated 8.0 to patch 40
+
 ## v1.4.4 - [December 7, 2024](https://github.com/lando/mysql/releases/tag/v1.4.4)
 
 * Optimized for `midcore`
