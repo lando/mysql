@@ -22,11 +22,11 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should use 8.0.40 as the default version
-lando exec defaults -- mysql --version | grep 8.0.40
+# Should use 8.4 as the default version
+lando exec defaults -- mysql --version | grep 8.4.3
 
 # Should use the patch version when set by the user
-lando exec patch -- mysql --version | grep 8.0.24
+lando exec patch -- mysql --version | grep 8.4.1
 
 # Should use the correct default user pass db
 lando exec defaults -- mysql -umysql -pmysql database -e quit
