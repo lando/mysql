@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.5.0 - [January 6, 2025](https://github.com/lando/mysql/releases/tag/v1.5.0)
+
 * Added support for MySQL 8.4
 * Updated 8.0 to patch 40
 
