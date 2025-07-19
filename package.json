@@ -3,7 +3,7 @@
   "description": "A Lando plugin that provides a tight integration with MySQL.",
   "version": "1.5.0",
   "author": "Mike Pirog @pirog",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "repository": "lando/mysql",
   "bugs": "https://github.com/lando/mysql/issues/new/choose",
   "homepage": "https://github.com/lando/mysql",
