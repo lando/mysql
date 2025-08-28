@@ -17,6 +17,7 @@ jobs:
           - '20'
         lando-version:
           - 3-edge
+          - 3-stable
         leia-test:
           - examples/5.7
           - examples/8.0

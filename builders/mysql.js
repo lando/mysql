@@ -11,9 +11,9 @@ module.exports = {
     version: '5.7',
     supported: ['8.4', '8.0', '5.7'],
     pinPairs: {
-      '8.4': 'bitnami/mysql:8.4.3-debian-12-r4',
-      '8.0': 'bitnami/mysql:8.0.40-debian-12-r4',
-      '5.7': 'bitnami/mysql:5.7.43-debian-11-r73',
+      '8.4': 'bitnamilegacy/mysql:8.4.5-debian-12-r0',
+      '8.0': 'bitnamilegacy/mysql:8.0.40-debian-12-r5',
+      '5.7': 'bitnamilegacy/mysql:5.7.43-debian-11-r73',
     },
     patchesSupported: true,
     confSrc: path.resolve(__dirname, '..', 'config'),
@@ -47,7 +47,7 @@ module.exports = {
 
       // Build the default stuff here
       const mysql = {
-        image: `bitnami/mysql:${options.version}`,
+        image: `bitnamilegacy/mysql:${options.version}`,
         command: '/launch.sh',
         environment: {
           ALLOW_EMPTY_PASSWORD: 'yes',
