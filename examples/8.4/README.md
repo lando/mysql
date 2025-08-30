@@ -23,7 +23,7 @@ Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should use 8.4 as the default version
-lando exec defaults -- mysql --version | grep 8.4.3
+lando exec defaults -- mysql --version | grep 8.4.5
 
 # Should use the patch version when set by the user
 lando exec patch -- mysql --version | grep 8.4.1
