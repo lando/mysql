@@ -21,7 +21,7 @@ In the case of type and version, the underlying database files between these thi
 ```yaml
 services:
   myservice:
-    type: mysql:5.7
+    type: mysql:8.4
     portforward: false
     creds:
       user: mysql
@@ -29,7 +29,7 @@ services:
       database: database
     config:
       database: SEE BELOW
-    # This setting only works on mysql:8.0
+    # This setting only works on mysql:8.0+
     authentication: caching_sha2_password
 ```
 
@@ -46,7 +46,7 @@ services:
 ```yaml
 services:
   myservice:
-    type: mysql
+    type: mysql:8.4
     portforward: true
 ```
 
@@ -55,7 +55,7 @@ services:
 ```yaml
 services:
   myservice:
-    type: mysql
+    type: mysql:8.4
     portforward: 3600
 ```
 

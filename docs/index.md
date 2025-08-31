@@ -1,7 +1,6 @@
 ---
 title: MySQL Lando Plugin
 description: Add a highly configurable MySQL service to Lando for local development with all the power of Docker and Docker Compose.
-next: ./config.html
 ---
 
 # MySQL
@@ -13,14 +12,14 @@ You can easily add it to your Lando app by adding an entry to the [services](htt
 ```yaml
 services:
   myservice:
-    type: mysql:8.0
+    type: mysql:8.4
 ```
 
 ## Supported versions
 
 *   [8.4](https://hub.docker.com/r/bitnamilegacy/mysql/tags?name=8.4.)
 *   [8.0](https://hub.docker.com/r/bitnamilegacy/mysql/tags?name=8.0.)
-*   **[5.7](https://hub.docker.com/r/bitnamilegacy/mysql/tags?name=5.7.)** **(default)**
+*   [5.7](https://hub.docker.com/r/bitnamilegacy/mysql/tags?name=5.7.)
 *   [custom](https://docs.lando.dev/services/lando-3.html#overrides)
 
 ## Patch versions
