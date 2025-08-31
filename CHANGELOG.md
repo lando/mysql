@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.6.0 - [August 31, 2025](https://github.com/lando/mysql/releases/tag/v1.6.0)
+
 * Switched images to [bitnamilegacy](https://github.com/bitnami/containers/issues/83267) namespace
 * Updated `mysql:8.4` to `8.4.3`
 
