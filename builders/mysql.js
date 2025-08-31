@@ -9,9 +9,13 @@ module.exports = {
   name: 'mysql',
   config: {
     version: '5.7',
-    supported: ['8.4', '8.0', '5.7'],
+    supported: ['8', '8.4', '8.3', '8.2', '8.1', '8.0', '5.7'],
     pinPairs: {
+      '8': 'bitnamilegacy/mysql:8.4.5-debian-12-r0',
       '8.4': 'bitnamilegacy/mysql:8.4.5-debian-12-r0',
+      '8.3': 'bitnamilegacy/mysql:8.3.0-debian-12-r9',
+      '8.2': 'bitnamilegacy/mysql:8.2.0-debian-11-r8',
+      '8.1': 'bitnamilegacy/mysql:8.1.0-debian-11-r57',
       '8.0': 'bitnamilegacy/mysql:8.0.40-debian-12-r5',
       '5.7': 'bitnamilegacy/mysql:5.7.43-debian-11-r73',
     },
