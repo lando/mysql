@@ -1,5 +1,9 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.6.0 - [August 28, 2025](https://github.com/lando/mysql/releases/tag/v1.6.0)
+
+* Migrate images to bitnamilegacy repository
+
 ## v1.5.0 - [January 6, 2025](https://github.com/lando/mysql/releases/tag/v1.5.0)
 
 * Added support for MySQL 8.4

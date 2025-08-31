@@ -18,9 +18,9 @@ services:
 
 ## Supported versions
 
-*   [8.4](https://hub.docker.com/r/bitnami/mysql/tags?name=8.4.)
-*   [8.0](https://hub.docker.com/r/bitnami/mysql/tags?name=8.0.)
-*   **[5.7](https://hub.docker.com/r/bitnami/mysql/tags?name=5.7.)** **(default)**
+*   [8.4](https://hub.docker.com/r/bitnamilegacy/mysql/tags?name=8.4.)
+*   [8.0](https://hub.docker.com/r/bitnamilegacy/mysql/tags?name=8.0.)
+*   **[5.7](https://hub.docker.com/r/bitnamilegacy/mysql/tags?name=5.7.)** **(default)**
 *   [custom](https://docs.lando.dev/services/lando-3.html#overrides)
 
 ## Patch versions
@@ -37,5 +37,5 @@ services:
     type: mysql:5.7.24
 ```
 
-But make sure you use one of the available [patch tags](https://hub.docker.com/r/bitnami/mysql/tags) for the underlying image we are using.
+But make sure you use one of the available [patch tags](https://hub.docker.com/r/bitnamilegacy/mysql/tags) for the underlying image we are using.
 
