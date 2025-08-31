@@ -1,12 +1,10 @@
-MySQL Example
-=============
+# MySQL Custom Example
 
 This example exists primarily to test the following documentation:
 
-* [MySQL Service](https://docs.devwithlando.io/tutorials/mysql.html)
+* [MySQL Service](https://docs.lando.dev/plugins/mysql)
 
-Start up tests
---------------
+## Start up tests
 
 Run the following commands to get up and running with this example.
 
@@ -16,8 +14,7 @@ lando poweroff
 lando start
 ```
 
-Verification commands
----------------------
+## Verification commands
 
 Run the following commands to validate things are rolling as they should.
 
@@ -42,8 +39,7 @@ docker inspect landomysqlcustom_custom_1 | grep max-file | grep 5
 docker inspect landomysqlcustom_custom_1 | grep max-size | grep 5m
 ```
 
-Destroy tests
--------------
+## Destroy tests
 
 Run the following commands to trash this app like nothing ever happened.
 
