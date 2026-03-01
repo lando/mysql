@@ -50,17 +50,26 @@ module.exports = {
       if (_.get(options, '_app._config.uid', '1000') !== '1001') options._app.nonRoot.push(options.name);
 
       // Build the default stuff here
+      const environment = {
+        ALLOW_EMPTY_PASSWORD: 'yes',
+        MYSQL_DATABASE: options.creds.database,
+        MYSQL_PASSWORD: options.creds.password,
+        MYSQL_USER: options.creds.user,
+        LANDO_NEEDS_EXEC: 'DOEEET',
+      };
+
+      // Only set the authentication plugin env var when explicitly configured.
+      // The bitnami image translates this into `default_authentication_plugin`
+      // in my.cnf, which was removed in MySQL 8.4 and causes a fatal startup
+      // error if present.
+      if (options.authentication) {
+        environment.MYSQL_AUTHENTICATION_PLUGIN = options.authentication;
+      }
+
       const mysql = {
         image: `bitnamilegacy/mysql:${options.version}`,
         command: '/launch.sh',
-        environment: {
-          ALLOW_EMPTY_PASSWORD: 'yes',
-          MYSQL_AUTHENTICATION_PLUGIN: options.authentication,
-          MYSQL_DATABASE: options.creds.database,
-          MYSQL_PASSWORD: options.creds.password,
-          MYSQL_USER: options.creds.user,
-          LANDO_NEEDS_EXEC: 'DOEEET',
-        },
+        environment,
         volumes: [
           `${options.confDest}/launch.sh:/launch.sh`,
           `${options.confDest}/${options.defaultFiles.database}:${options.remoteFiles.database}`,
