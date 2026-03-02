@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Fixed MySQL 8.4 startup failure caused by setting removed `default_authentication_plugin` variable [#69](https://github.com/lando/mysql/issues/69) [#72](https://github.com/lando/mysql/issues/72)
+
 ## v1.6.0 - [August 31, 2025](https://github.com/lando/mysql/releases/tag/v1.6.0)
 
 * Switched images to [bitnamilegacy](https://github.com/bitnami/containers/issues/83267) namespace
